@@ -1,0 +1,17 @@
+{
+  "name": "monkeytype-desktop-plugin",
+  "productName": "Monkeytype-Desktop-Plugin",
+  "version": "1.0.0",
+  "description": "A simple Monkeytype plugin for your desktop",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "",
+  "author": "Noel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "~12.2.2",
+    "electron-packager": "^15.4.0"
+  }
+}
