@@ -5,7 +5,9 @@
   "description": "A simple Monkeytype plugin for your desktop",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . MonkeytypeDesktopPlugin --icon=./mt-icon-512.ico",
+    "cleanup": "rm -rf MonkeytypeDesktopPlugin-win32-x64"
   },
   "repository": "",
   "author": "Noel",
