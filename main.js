@@ -23,7 +23,7 @@ const getConfig = (path) => {
     configObj = JSON.parse(fs.readFileSync(path, {encoding: "utf8"}));
   } catch (e) {
     console.log('failed to parse config file');
-    console.log(e);
+    console.debug(e);
   }
   return configObj;
 }
@@ -40,9 +40,14 @@ const applyStylesById = (window) => ({id, key, value}) =>
     ${id}StyleElem.style.${key} = '${value}';
   `);
 
-const setBackgroundOpacity = (window, backgroundOpacity) => {
+const setupBackgroundColor = (window) => {
    window.webContents.executeJavaScript(`
     const bgColor = getComputedStyle(document.body).getPropertyValue('--bg-color');
+  `);
+}
+
+const setBackgroundOpacity = (window, backgroundOpacity) => {
+   window.webContents.executeJavaScript(`
     document.body.style.backgroundColor = bgColor + '${backgroundOpacity}';
   `);
 }
@@ -80,12 +85,18 @@ if (!!config.wordsBrightness) {
   stylesToApply = [...stylesToApply, wordBrightnessStyle(config.wordsBrightness)]
 }
 if (!!config.blurOpacity) {
-  app.on('browser-window-blur', (event, browserWindow) =>
+  app.on('browser-window-blur', (event, browserWindow) => {
+    if (!!config.blurBackgroundOpacity) {
+      setBackgroundOpacity(browserWindow, config.blurBackgroundOpacity)
+    }
     browserWindow.setOpacity(config.blurOpacity)
-  );
-  app.on('browser-window-focus', (event, browserWindow) =>
+  });
+  app.on('browser-window-focus', (event, browserWindow) => {
+    if (!!config.blurBackgroundOpacity) {
+      setBackgroundOpacity(browserWindow, !!config.backgroundOpacity ? config.backgroundOpacity : 'FF')
+    }
     browserWindow.setOpacity(1.0)
-  );
+  });
 }
 
 app.on('ready', () => {
@@ -104,6 +115,7 @@ app.on('ready', () => {
     window.webContents.openDevTools({ mode: 'detach' });
   }
   window.webContents.on('ready-to-show', () => {
+    setupBackgroundColor(window);
     // Set the transparent background
     if (!!config.backgroundOpacity) {
      setBackgroundOpacity(window, config.backgroundOpacity);
@@ -111,7 +123,6 @@ app.on('ready', () => {
     if (!!config.draggable) {
       makeKeyDownDraggableHandle(window, config.draggable.elemID, config.draggable.keyCode);
     }
-
     // Delete Sections
     sectionsToRemove.forEach(removeElemById(window));
     // Apply Styles

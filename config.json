@@ -1,17 +1,10 @@
 {
 	"windowConfig": {
 		"height": 300,
-		"width": 980,
-		"x": 0,
-		"y": 0
+		"width": 980
 	},
 	"idsToRemove": ["top", "bottom"],
-	"backgroundOpacity": "7F",
-	"wordsBrightness": "100%",
-	"showDevTools": false,
-	"draggable": {
-		"elemID": "middle",
-		"keyCode": 17
-	},
-	"blurOpacity": 0.1
+	"blurBackgroundOpacity": "00",
+	"blurOpacity": 1,
+	"showDevTools": false
 }
