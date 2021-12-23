@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-packager . MonkeytypeDesktopPlugin --icon=./mt-icon-512.ico",
+    "build": "electron-packager . MonkeytypeDesktopPlugin --icon=./assets/mt-icon-512.ico",
     "cleanup": "rm -rf MonkeytypeDesktopPlugin-win32-x64"
   },
   "repository": "",
