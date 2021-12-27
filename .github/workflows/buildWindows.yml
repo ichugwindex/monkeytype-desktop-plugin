@@ -5,13 +5,14 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Install and Build
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - name: use Node.js
+        uses: actions/setup-node@v2
         with:
           node-version: '14.1'
-      - run: npm install
-      - run: npm run buildWindows
+        run: |
+        npm install
+        npm run buildWindows
       - name: Archive production artifacts
         uses: actions/upload-artifact@v2
         with:
