@@ -1,2 +1,4 @@
 MonkeytypeDesktopPlugin*
 node_modules/*
+*.iml
+.idea

@@ -3,8 +3,6 @@ const fs = require('fs');
 
 const monkeytypeURL = 'https://monkeytype.com';
 
-// Opacity Options: //https://stackoverflow.com/questions/7015302/css-hexadecimal-rgba
-
 const noGridContentStyle = {
   id: 'centerContent',
   key: 'display',
