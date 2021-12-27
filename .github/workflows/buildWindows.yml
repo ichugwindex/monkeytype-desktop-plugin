@@ -12,6 +12,7 @@ jobs:
           node-version: '14.1'
       - name: Install and Build
         run: |
+          sudo apt install --install-recommends winehq-stable
           npm install
           npm run buildWindows
       - name: Archive production artifacts
