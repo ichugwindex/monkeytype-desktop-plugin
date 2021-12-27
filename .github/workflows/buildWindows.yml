@@ -1,3 +1,6 @@
+name: Build for Windows64
+on: workflow_dispatch
+
 steps:
   - name: Install and Build
   - uses: actions/checkout@v2
