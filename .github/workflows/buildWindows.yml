@@ -14,8 +14,7 @@ jobs:
         run: |
           sudo apt-get install libsdl2-2.0-0
           wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/amd64/libfaudio0_19.07-0~bionic_amd64.deb
-          wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/i386/libfaudio0_19.07-0~bionic_i386.deb
-          sudo dpkg -i libfaudio0_19.07-0~bionic_amd64.deb libfaudio0_19.07-0~bionic_i386.deb
+          sudo dpkg -i libfaudio0_19.07-0~bionic_amd64.deb
           sudo dpkg --add-architecture i386
           wget -nc https://dl.winehq.org/wine-builds/winehq.key
           sudo apt-key add winehq.key
