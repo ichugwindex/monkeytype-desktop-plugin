@@ -1,6 +1,6 @@
 # Monkeytype Desktop Plugin
 
-A customizable desktop plugin that displays Monkeytype with minimal styles.
+###### A customizable desktop plugin that displays Monkeytype with minimal styles.
 
 ![](monkeytypedesktop.gif)
 
@@ -15,6 +15,7 @@ The goal of this project is to create a plugin that runs Monkeytype on the deskt
 * App runs in the background, hidden from the taskbar.
 * Customizable window position, size, background opacity and text brightness via a configuration json file.
 * Sample Rainmeter ini file to launch the app on start up.
+* Only been built and tested on Windows.  Contact me if you want Mac support.
 
 ## Dev Setup
 

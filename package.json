@@ -7,6 +7,8 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-packager . MonkeytypeDesktopPlugin --icon=./assets/mt-icon-512.ico",
+    "buildWindows": "electron-packager . MonkeytypeDesktopPlugin --platform=win32 --arch=x64",
+    "buildAll": "electron-packager ./ MonkeytypeDesktopPlugin --all --icon=./assets/mt-icon-512.ico",
     "cleanup": "rm -rf MonkeytypeDesktopPlugin-win32-x64"
   },
   "repository": "",
