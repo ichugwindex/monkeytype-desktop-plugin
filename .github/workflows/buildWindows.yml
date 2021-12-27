@@ -2,7 +2,7 @@ name: Build for Windows64
 on: workflow_dispatch
 
 jobs:
-  say_hello:
+  build_windows:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -12,6 +12,9 @@ jobs:
           node-version: '14.1'
       - name: Install and Build
         run: |
+          wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/amd64/libfaudio0_19.07-0~bionic_amd64.deb
+          wget https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/i386/libfaudio0_19.07-0~bionic_i386.deb
+          sudo dpkg -i libfaudio0_19.07-0~bionic_amd64.deb libfaudio0_19.07-0~bionic_i386.deb
           sudo dpkg --add-architecture i386
           wget -nc https://dl.winehq.org/wine-builds/winehq.key
           sudo apt-key add winehq.key
