@@ -126,5 +126,8 @@ app.on('ready', () => {
     // Apply Styles
     stylesToApply.forEach(applyStylesById(window));
     window.show();
+    if (!!config.blurOnStart) {
+      window.blur();
+    }
   });
 });

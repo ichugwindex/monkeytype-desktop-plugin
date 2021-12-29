@@ -6,5 +6,6 @@
 	"idsToRemove": ["top", "bottom"],
 	"blurBackgroundOpacity": "00",
 	"blurOpacity": 1,
-	"showDevTools": false
+	"showDevTools": false,
+	"blurOnStart": true
 }

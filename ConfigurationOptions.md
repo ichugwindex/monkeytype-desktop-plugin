@@ -15,3 +15,4 @@ These options are for customizing the desktop plugin, not for customizing Monkey
 * draggable: enables the moving of the window by holding down a key and target element as the handle, i.e. holding ctrl and click-dragging the center content.  Provided as an object with keys: elemID (string id of the dragging handle, i.e. top, middle, bottom), keyCode (number key to hold down to enable dragging, i.e. 17 for ctrl)
 * blurOpacity: sets the opacity of the app when not in focus, provided by a double number i.e. 0.1.   Useful for hiding the app *completely* when you aren't using it.
 * blurBackgroundOpacity: sets the opacity of the background of the app when not in focus, provided by a hexadecimal string i.e. 00 for transparent.  Useful for hiding the app *background* when not in focus, but still showing the text.
+* blurOnStart: blurs(de-focuses) the application on start up.  Useful for hiding the app in the background on start up.

@@ -13,5 +13,6 @@
 		"elemID": "middle",
 		"keyCode": 17
 	},
-	"blurOpacity": 0.1
+	"blurOpacity": 0.1,
+	"blurOnStart": false
 }
