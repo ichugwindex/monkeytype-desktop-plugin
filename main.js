@@ -1,4 +1,5 @@
 const { app, BrowserWindow, screen } = require('electron');
+const path = require('path');
 const fs = require('fs');
 
 const monkeytypeURL = 'https://monkeytype.com';
@@ -71,7 +72,7 @@ const makeKeyDownDraggableHandle = (window, elemID, keyCode) => {
   `);
 }
 
-const config = getConfig('./config.json');
+const config = getConfig(path.join(__dirname, '.', 'config.json'));
 console.log(config);
 const sectionsToRemove = config.idsToRemove || [];
 let stylesToApply = [];
@@ -130,4 +131,7 @@ app.on('ready', () => {
       window.blur();
     }
   });
+  if (app.dock) {
+    app.dock.hide();
+  }
 });
