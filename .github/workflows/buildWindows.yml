@@ -2,15 +2,26 @@ name: Build for Windows64
 on: workflow_dispatch
 
 jobs:
-  say_hello:
-    runs-on: ubuntu-latest
+  build_windows:
+    runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
       - name: use Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '14.1'
-      - name: Install and Build
+      - name: Install Wine
+        run: |
+          sudo dpkg --add-architecture i386
+          sudo apt update
+          wget -qO- https://dl.winehq.org/wine-builds/winehq.key | sudo apt-key add -
+          sudo apt install software-properties-common
+          sudo apt-add-repository 'deb http://dl.winehq.org/wine-builds/ubuntu/ bionic main'
+          wget -qO- https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key | sudo apt-key add -
+          sudo sh -c 'echo "deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./" > /etc/apt/sources.list.d/obs.list'
+          sudo apt update
+          sudo apt-get install -y --install-recommends winehq-devel
+      - name: Setup NPM Package
         run: |
           npm install
           npm run buildWindows
